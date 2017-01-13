@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 // Requiring our Note and Article models
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
+var Key = require("./keys.js");
 // Scraping tools
 var request = require("request");
 var cheerio = require("cheerio");
@@ -13,7 +14,6 @@ var Promise = require("bluebird");
 
 mongoose.Promise = Promise;
 
-
 // Initialize Express
 var app = express();
 
@@ -21,7 +21,7 @@ var app = express();
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://heroku_k11db4ss:o94u4ive63b5smn1v9spvmn28c@ds153785.mlab.com:53785/heroku_k11db4ss");
+mongoose.connect(Key);
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -61,7 +61,7 @@ app.get("/scrape", function(req, res) {
       var entry = new Article(result);
 
       // If this title element had both a title and a link
-      if (title && link) {
+      if (result.title && result.link) {
         // save that entry to the db
       entry.save(function(err, doc) {
         // Log any errors
