@@ -1,0 +1,28 @@
+{
+  "name": "nytscraper",
+  "version": "1.0.0",
+  "description": "a web scraper for the nyt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RJRowland93/NYTScraper.git"
+  },
+  "author": "Randal Rowland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJRowland93/NYTScraper/issues"
+  },
+  "homepage": "https://github.com/RJRowland93/NYTScraper#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "request": "^2.79.0"
+  }
+}
